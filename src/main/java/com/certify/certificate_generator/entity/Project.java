@@ -2,12 +2,13 @@ package com.certify.certificate_generator.entity;
 
 
 import jakarta.persistence.*;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "projects")
-
+@NoArgsConstructor
 public class Project {
 
     @Id
@@ -25,15 +26,15 @@ public class Project {
 
     // Constructors, getters and setters
 
-    public Project() {
-    }
-
     public Project(Long id, String name, String description, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public Project(String name, String description) {
     }
 
     public Long getId() {
