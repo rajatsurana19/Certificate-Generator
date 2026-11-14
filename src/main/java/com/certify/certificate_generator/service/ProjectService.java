@@ -5,6 +5,7 @@ import com.certify.certificate_generator.dto.request.CreateProjectRequest;
 import com.certify.certificate_generator.dto.request.UpdateProjectRequest;
 import com.certify.certificate_generator.dto.response.ProjectResponse;
 import com.certify.certificate_generator.entity.Project;
+import com.certify.certificate_generator.exception.ResourceNotFoundException;
 import com.certify.certificate_generator.repository.ProjectRepository;
 import org.springframework.stereotype.Service;
 
@@ -70,10 +71,11 @@ public class ProjectService {
 
         return projectRepository.findById(id)
                 .orElseThrow(() ->
-                        new RuntimeException("Project not found with id " + id)
+                        new ResourceNotFoundException(
+                                "Project not found with id " + id
+                        )
                 );
     }
-
     // Entity to Response DTO conversion
     private ProjectResponse mapToResponse(Project project) {
 
