@@ -5,7 +5,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 
 public class TemplateResponse {
@@ -31,6 +33,9 @@ public class TemplateResponse {
     private Long projectid;
 
     private LocalDateTime createdAt;
+
+    public TemplateResponse(Long id, String name, String fileName, String fileType, Double width, Double height, Long id1, LocalDateTime createdAt) {
+    }
 
     public Long getId() {
         return id;
@@ -103,4 +108,6 @@ public class TemplateResponse {
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
+
+
 }
